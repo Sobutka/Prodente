@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Orcamento } from "./Orcamento";
 import { Procedimento } from "./Procedimento";
+import { Paciente } from "./Paciente";
 
 @Entity('odontogramas')
 export class Odontograma{
@@ -19,11 +19,11 @@ export class Odontograma{
     @Column({type: 'text'})
     valor: String
 
-    @ManyToOne(() => Orcamento, orcamento => orcamento.odontograma)
-    @JoinColumn({name: 'orcamento_codOrcamento'})
-    orcamento: Orcamento
-
     @ManyToOne(() => Procedimento, procedimento => procedimento.odontograma)
     @JoinColumn({name: 'procedimento_codProcedimento'})
     procedimento: Procedimento
+
+    @ManyToOne(() => Paciente, paciente => paciente.odontograma)
+    @JoinColumn({name: 'paciente_codPac'})
+    paciente: Paciente
 }
