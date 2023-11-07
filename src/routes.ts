@@ -3,7 +3,6 @@ import { ConsultaController } from './controllers/ConsultaController'
 import { PacienteController } from './controllers/PacienteController'
 import { DentistaController } from './controllers/DentistaController'
 import { AnamneseController } from './controllers/AnamneseController'
-import { OrcamentoController } from './controllers/OrcamentoController'
 import { OdontogramaController } from './controllers/OdontogramaController'
 import { ProcedimentoController } from './controllers/ProcedimentoController'
 
@@ -23,19 +22,14 @@ routes.get('/dentista/:codDent', new DentistaController().listId)
 routes.put('/dentista/:codDent', new DentistaController().update)
 routes.delete('/dentista/:codDent', new DentistaController().delete)
 routes.get('/consulta', new ConsultaController().list)
-routes.put('/consulta/:codCons', new ConsultaController().listId)
+routes.get('/consulta/:codCons', new ConsultaController().listId)
 routes.put('/consulta/:codCons', new ConsultaController().update)
 routes.delete('/consulta/:codCons', new ConsultaController().delete)
 routes.get('/anamnese', new AnamneseController().list)
 routes.get('/anamnese/:codPac', new AnamneseController().list)
-routes.put('/anamnese/:codAnam', new AnamneseController().listId)
+routes.get('/anamnese/:codAnam', new AnamneseController().listId)
 routes.put('/anamnese/:codAnam', new AnamneseController().update)
 routes.delete('/anamnese/:codAnam', new AnamneseController().delete)
-routes.post('/orcamento', new OrcamentoController().create)
-routes.get('/orcamento', new OrcamentoController().list)
-routes.get('/orcamento:codOrcamento', new OrcamentoController().listId)
-routes.put('/orcamento/:codOrcamento', new OrcamentoController().update)
-routes.delete('/orcamento/:codOrcamento', new OrcamentoController().delete)
 routes.post('/odontograma', new OdontogramaController().create)
 routes.get('/odontograma', new OdontogramaController().list)
 routes.get('/odontograma:codOdon', new OdontogramaController().listId)
