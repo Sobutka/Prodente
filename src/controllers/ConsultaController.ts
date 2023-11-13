@@ -3,10 +3,9 @@ import { consultaRepository } from "../repositories/consultaRepository";
 
 export class ConsultaController{
     async create(req: Request, res: Response){
-        let { data, horaInicio, horaFinal, confirmado, consRealizada, paciente, dentista, anamnese, codDent, codPac, codAnam} = req.body
+        let { data, horaInicio, horaFinal, confirmado, consRealizada, paciente, dentista, codDent, codPac} = req.body
         codDent = dentista
         codPac = paciente
-        codAnam = anamnese
 
         data = new Date(data.replace(/(\d{2})\/(\d{2})\/(\d{4})/, "$2/$1/$3"));
         data.setDate(data.getDate() + 1)
@@ -22,7 +21,7 @@ export class ConsultaController{
 
         try {
 
-            const newConsulta = consultaRepository.create({ data,horaInicio,horaFinal,confirmado,consRealizada, paciente, dentista, anamnese, codDent, codPac, codAnam})
+            const newConsulta = consultaRepository.create({ data,horaInicio,horaFinal,confirmado,consRealizada, paciente, dentista, codDent, codPac, })
 
             await consultaRepository.save(newConsulta)
 

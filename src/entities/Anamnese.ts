@@ -1,5 +1,6 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Consulta } from "./Consulta";
+import { Paciente } from "./Paciente";
 
 @Entity('anamneses')
 export class Anamnese{
@@ -87,7 +88,12 @@ export class Anamnese{
     @Column({type:'text', nullable: true})
     anotacao : String
 
-    @OneToMany(() => Consulta, (consulta) => consulta.dentista)
+    @OneToMany(() => Consulta, (consulta) => consulta.anamnese)
     consulta: Consulta[]
+
+    @ManyToOne(() => Paciente, paciente => paciente.anamnese)
+    @JoinColumn({name: 'paciente_codPac'})
+    paciente: Paciente
+
 
 }

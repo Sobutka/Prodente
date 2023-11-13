@@ -24,7 +24,7 @@ export class PacienteController{
         }
 
         try {
-            const newPaciente = pacienteRepository.create({ nome, cpf, email, dataNasc, celular, celularRecado })
+            const newPaciente = pacienteRepository.create({ nome, cpf, email, dataNasc, celular, celularRecado})
             
             await pacienteRepository.save(newPaciente)
 

@@ -1,6 +1,7 @@
-import {Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Consulta } from "./Consulta";
 import { Odontograma } from "./Odontograma";
+import { Anamnese } from "./Anamnese";
 
 @Entity('pacientes')
 export class Paciente{
@@ -30,4 +31,8 @@ export class Paciente{
 
     @OneToMany(() => Odontograma, (odontograma) => odontograma.paciente)
     odontograma: Odontograma[]
+
+    @OneToMany(() => Anamnese, (anamnese) => anamnese.paciente)
+    anamnese: Anamnese[]
+
 }
