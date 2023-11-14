@@ -3,9 +3,10 @@ import { odontogramaRepository } from "../repositories/odontogramaRepository";
 
 export class OdontogramaController{
     async create(req: Request, res: Response){
-        let { dataRealizacao, dente, face, valor, procedimento, paciente} = req.body
+        let { dataRealizacao, dente, face, valor, procedimento, paciente, codPac} = req.body
+        codPac = paciente
         dataRealizacao = new Date(dataRealizacao.replace(/(\d{2})\/(\d{2})\/(\d{4})/, "$2/$1/$3"));
-        dataRealizacao.setDate(dataRealizacao.getDate() + 1)
+        dataRealizacao.setDate(dataRealizacao.getDate())
         console.log(dataRealizacao)
 
 
@@ -15,7 +16,7 @@ export class OdontogramaController{
 
         try {
 
-            const newOdontograma = odontogramaRepository.create({ dataRealizacao, dente, face, valor, procedimento, paciente})
+            const newOdontograma = odontogramaRepository.create({ dataRealizacao, dente, face, valor, procedimento, paciente, codPac})
 
             await odontogramaRepository.save(newOdontograma)
 

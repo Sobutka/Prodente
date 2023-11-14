@@ -9,7 +9,8 @@ export class AnamneseController{
         anemia, transfusaoSangue, dst ,tonturas, convulsoes, diabetes,
         fuma, alcool, asma, bronquite, rinite, sinusite, gastrite, 
         alergiaPeniscilina, cancerDeProstata, alergiaIodo, denteMole,
-        feridaLabioeLingua, anotacao, paciente} = req.body
+        feridaLabioeLingua, anotacao, paciente, codPac} = req.body
+        codPac = paciente
 
 
         try {
@@ -20,7 +21,7 @@ export class AnamneseController{
                 anemia, transfusaoSangue, dst ,tonturas, convulsoes, diabetes,
                 fuma, alcool, asma, bronquite, rinite, sinusite, gastrite, 
                 alergiaPeniscilina, cancerDeProstata, alergiaIodo, denteMole,
-                feridaLabioeLingua, anotacao, paciente})
+                feridaLabioeLingua, anotacao, paciente, codPac})
 
             await anamneseRepository.save(newAnamnese)
             

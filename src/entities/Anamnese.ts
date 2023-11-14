@@ -88,12 +88,10 @@ export class Anamnese{
     @Column({type:'text', nullable: true})
     anotacao : String
 
-    @OneToMany(() => Consulta, (consulta) => consulta.anamnese)
-    consulta: Consulta[]
-
     @ManyToOne(() => Paciente, paciente => paciente.anamnese)
     @JoinColumn({name: 'paciente_codPac'})
     paciente: Paciente
 
-
+    @Column({type: 'int', nullable: true})
+    codPac: number
 }

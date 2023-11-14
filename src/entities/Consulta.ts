@@ -31,16 +31,10 @@ export class Consulta{
     @JoinColumn({name: 'paciente_codPac'})
     paciente: Paciente
 
-    @ManyToOne(() => Anamnese, anamnese => anamnese.consulta)
-    @JoinColumn({name: 'anamnese_codAnam'})
-    anamnese: Anamnese
-
     @Column({type: 'int', nullable: true})
     codDent: number
 
     @Column({type: 'int', nullable: true})
     codPac: number
 
-    @Column({type: 'int', nullable: true})
-    codAnam: number
 }

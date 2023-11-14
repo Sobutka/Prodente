@@ -26,4 +26,7 @@ export class Odontograma{
     @ManyToOne(() => Paciente, paciente => paciente.odontograma)
     @JoinColumn({name: 'paciente_codPac'})
     paciente: Paciente
+
+    @Column({type: 'int', nullable: true})
+    codPac: number
 }
