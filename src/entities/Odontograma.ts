@@ -19,6 +19,12 @@ export class Odontograma{
     @Column({type: 'text'})
     valor: String
 
+    @Column({type: 'text'})
+    quadrante: String
+
+    @Column({type: 'text'})
+    situacao: String
+
     @ManyToOne(() => Procedimento, procedimento => procedimento.odontograma)
     @JoinColumn({name: 'procedimento_codProcedimento'})
     procedimento: Procedimento
