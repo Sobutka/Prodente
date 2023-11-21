@@ -25,9 +25,6 @@ export class Dentista {
   celularRecado: string;
 
   @Column({ type: "text" })
-  celular: string;
-
-  @Column({ type: "text" })
   uf: string;
 
   @OneToMany(() => Consulta, (consulta) => consulta.dentista)
