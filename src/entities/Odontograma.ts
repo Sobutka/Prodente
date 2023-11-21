@@ -35,4 +35,7 @@ export class Odontograma{
 
     @Column({type: 'int', nullable: true})
     codPac: number
+
+    @Column({type: 'int', nullable: true})
+    codProcedimento: number
 }
