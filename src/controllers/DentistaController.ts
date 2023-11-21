@@ -27,6 +27,10 @@ export class DentistaController {
       return res.status(400).json({ message: "O Celular é obrigatório" });
     }
 
+    if (!uf) {
+      return res.status(400).json({ message: "O uf é obrigatório" });
+    }
+
     try {
       const newDentista = dentistaRepository.create({
         nome,
